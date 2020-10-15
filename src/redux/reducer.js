@@ -1,3 +1,5 @@
+import redux_constants from "./redux_constants";
+
 const initialState = {
     ids: [],
     tasks: {}
@@ -16,7 +18,7 @@ const getUndeletedTasks = (tasks, id) => {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case 'ADD_TASK': {
+        case redux_constants.ADD_TASK: {
             const {name} = action.payload;
             const id = getNextId(state.ids);
             console.log(id);
@@ -32,7 +34,7 @@ export default function (state = initialState, action) {
                 }
             };
         }
-        case 'REMOVE_TASK': {
+        case redux_constants.REMOVE_TASK: {
             const {id} = action.payload;
             const undeletedTasks = getUndeletedTasks(state.tasks, id);
             return {
@@ -40,7 +42,7 @@ export default function (state = initialState, action) {
                 tasks: undeletedTasks
             };
         }
-        case 'CHANGE_TASK': {
+        case redux_constants.CHANGE_TASK: {
             const {id, name} = action.payload;
             return {
                 ids: state.ids,

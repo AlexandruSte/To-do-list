@@ -1,19 +1,21 @@
+import redux_actions from "./redux_constants";
+
 export const addTask = name => ({
-    type: "ADD_TASK",
+    type: redux_actions.ADD_TASK,
     payload: {
         name
     }
 });
 
 export const removeTask = id => ({
-    type: "REMOVE_TASK",
+    type: redux_actions.REMOVE_TASK,
     payload: {
         id
     }
 });
 
 export const changeTask = (id, name) => ({
-    type: "CHANGE_TASK",
+    type: redux_actions.CHANGE_TASK,
     payload: {
         id,
         name
